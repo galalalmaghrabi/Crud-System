@@ -9,9 +9,9 @@ export const addUser = async (data)=>{
         console.log('error')
     }
 }
-export const editUser = async (data)=>{
+export const editUser = async (data,id)=>{
     try {
-        return await axios.post(`${URL}/edit-user`, data)
+        return await axios.post(`${URL}/edit-user/${id}`, data)
     } catch (error) {
         console.log('error')
     }

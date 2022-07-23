@@ -12,7 +12,8 @@ const EditUser = () => {
     name : '',
     email : '',
     gender:'',
-    status:''
+    status:'',
+    _id:id
   }
   const [user,setUser] = useState(defaultValue)
 
@@ -21,7 +22,7 @@ const EditUser = () => {
   };
 
   const addUserDetails = async()=>{
-    await editUser(user)
+    await editUser(user,id)
     navigate('/')
   }
 
@@ -72,6 +73,7 @@ const EditUser = () => {
             value={user.email}
           />
         </div>
+        <input type="hidden" name="id" value={user._id} />
         <div className="form-group">
           <label for="gender" className="text-light">
             Gender

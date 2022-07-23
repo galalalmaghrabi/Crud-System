@@ -16,13 +16,13 @@ exports.addUser = (req, res) => {
 };
 exports.editUser = (req, res) => {
   mongoose.connect(URL).then(() => {
-
-    User.findOneAndUpdate(req.params.id, {
+    console.log(req.params.id||'aa');
+    User.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
       email: req.body.email,
       gender: req.body.gender,
       status: req.body.status,
-    }).then(console.log(true)
+    }).then(()=>{console.log(true)}
     ).catch(err=>{
         console.log(err)
     })
